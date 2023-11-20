@@ -21,6 +21,7 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+//  Set it as a model.
 const User = mongoose.model("User", userSchema);
 
 export default User;
