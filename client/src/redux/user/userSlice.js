@@ -39,7 +39,6 @@ const userSlice = createSlice({
     },
     deleteUserSuccess: (state) => {
       state.currentUser = null;
-      jhgg;
       state.loading = false;
       state.error = null;
     },

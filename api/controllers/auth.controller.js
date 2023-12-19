@@ -39,7 +39,6 @@ export const signin = async (req, res, next) => {
 export const google = async (req, res, next) => {
   try {
     const user = await User.findOne({ email: req.body.email });
-    console.log(user);
     if (user) {
       const token = jwt.sign(
         {
@@ -79,6 +78,7 @@ export const google = async (req, res, next) => {
         process.env.JWT_SECRET
       );
 
+      // Send back the response containing the user's info
       const { password: pass, ...rest } = newUser._doc;
       res
         .cookie("access_token", token, { httpOnly: true })
