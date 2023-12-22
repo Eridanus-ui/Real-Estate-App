@@ -33,5 +33,7 @@ export const updateUser = async (req, res, next) => {
     const { password, ...rest } = updateUser._doc;
 
     res.status(200).json(rest);
-  } catch (err) {}
+  } catch (err) {
+    next(errorHandler(409, "Unauthorized or user exists"));
+  }
 };
