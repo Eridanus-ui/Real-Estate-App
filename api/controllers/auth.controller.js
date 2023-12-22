@@ -15,7 +15,7 @@ export const signup = async (req, res, next) => {
     await newUser.save();
     res.status(201).json("User created successfully!!");
   } catch (error) {
-    next(errorHandler(409, "User already exists"));
+    next(errorHandler(409, "Error creating user"));
   }
 };
 
@@ -28,7 +28,7 @@ export const signin = async (req, res, next) => {
     if (!validPassword) return next(errorHandler(401, "Wrong credentials"));
     const token = jwt.sign({ id: validUser._id }, process.env.JWT_SECRET, {});
     res
-      .cookie("acces_token", token, { httpOnly: true })
+      .cookie("access_token", token, { httpOnly: true })
       .status(200)
       .json(validUser);
   } catch (error) {

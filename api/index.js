@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRouter from "./routes/user.route.js";
 import authRouter from "./routes/auth.route.js";
+import cookieParser from "cookie-parser";
 
 // Initialize dotenv
 dotenv.config();
@@ -19,6 +20,9 @@ mongoose
 
 // Initialize an express app
 const app = express();
+
+// Itialize cookier paser
+app.use(cookieParser());
 
 // Needed when sending data to the server as JSON
 app.use(express.json());
