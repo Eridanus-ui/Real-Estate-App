@@ -14,7 +14,9 @@ import {
 } from "../redux/user/userSlice";
 
 export default function Profile() {
-  const { currentUser, loading, error } = useSelector((state) => state.user);
+  const { currentUser, loading, error, googleAuthenticated } = useSelector(
+    (state) => state.user
+  );
   const dispatch = useDispatch();
   const fileRef = useRef();
   const [file, setFile] = useState(undefined);
@@ -128,6 +130,7 @@ export default function Profile() {
         />
         <input
           type="email"
+          disabled={googleAuthenticated}
           placeholder={currentUser.email}
           className="border p-3 rounded-lg"
           id="email"
@@ -135,6 +138,7 @@ export default function Profile() {
         />
         <input
           type="password"
+          disabled={googleAuthenticated}
           placeholder="password"
           className="border p-3 rounded-lg"
           id="password"

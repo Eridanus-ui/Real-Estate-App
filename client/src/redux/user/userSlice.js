@@ -4,6 +4,7 @@ const initialState = {
   currentUser: null,
   error: null,
   loading: false,
+  googleAuthenticated: false,
 };
 
 const userSlice = createSlice({
@@ -58,6 +59,9 @@ const userSlice = createSlice({
       state.error = action.payload;
       state.loading = false;
     },
+    userIsGoogleAuthenticated: (state) => {
+      state.googleAuthenticated = true;
+    },
   },
 });
 
@@ -74,6 +78,7 @@ export const {
   signOutUserFailure,
   signOutUserSuccess,
   signOutUserStart,
+  userIsGoogleAuthenticated,
 } = userSlice.actions;
 
 export default userSlice.reducer;
