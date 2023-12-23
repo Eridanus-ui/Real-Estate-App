@@ -37,3 +37,17 @@ export const updateUser = async (req, res, next) => {
     next(errorHandler(409, "Unauthorized or user exists"));
   }
 };
+
+export const deleteUser = async (req, res, next) => {
+  console.log("req.user.id:", req.user.id);
+  console.log("req.params.id", req.params.id);
+  if (req.user.id !== req.params.id)
+    return next(errorHandler(401, "You can only delete your own account"));
+  try {
+    await User.findByIdAndDelete(req.user.id);
+    res.clearCookie("access_token");
+    res.status(200).json("User has been deleted!");
+  } catch (error) {
+    next(errorHandler(409, "Error from DB"));
+  }
+};
