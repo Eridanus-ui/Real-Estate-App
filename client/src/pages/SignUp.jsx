@@ -61,6 +61,7 @@ export default function SignUp() {
           onChange={handleChange}
         />
         <input
+          required={true}
           type="email"
           placeholder="Email"
           className="border p-3 rounded-lg"
@@ -68,6 +69,7 @@ export default function SignUp() {
           onChange={handleChange}
         />
         <input
+          required={true}
           type="password"
           placeholder="Password"
           className="border p-3 rounded-lg"

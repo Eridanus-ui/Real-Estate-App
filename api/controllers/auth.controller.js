@@ -90,3 +90,12 @@ export const google = async (req, res, next) => {
     next(errorHandler(500, "Error signing in with Google"));
   }
 };
+
+export const signout = (req, res, next) => {
+  try {
+    res.clearCookie("access_token");
+    res.status(200).json("User has been logged out");
+  } catch (error) {
+    next(errorHandler(500, "Error signing you out"));
+  }
+};

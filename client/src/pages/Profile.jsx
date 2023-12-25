@@ -122,8 +122,11 @@ export default function Profile() {
   };
 
   // SignOut user functionality
-  const handleUserSignOut = () => {
+  const handleUserSignOut = async () => {
     try {
+      const res = await fetch("/api/auth/signout");
+      const data = await res.json();
+      console.log(data);
       dispatch(signOutUserStart());
       dispatch(signOutUserSuccess());
     } catch (error) {
