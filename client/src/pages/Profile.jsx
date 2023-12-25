@@ -11,6 +11,9 @@ import {
   deleteUserFailure,
   deleteUserStart,
   deleteUserSuccess,
+  signInFailure,
+  signOutUserStart,
+  signOutUserSuccess,
   updateUserFailure,
   updateUserStart,
   updateUserSuccess,
@@ -28,6 +31,7 @@ export default function Profile() {
   const [formData, setFormData] = useState({});
   const [updateSuccess, setUpdateSuccess] = useState(false);
 
+  // Handle file upload.
   const handleFileUpload = (file) => {
     // Create firebase storage
     const storage = getStorage(app);
@@ -67,6 +71,7 @@ export default function Profile() {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
+  // Handle form Submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -95,6 +100,7 @@ export default function Profile() {
     }
   };
 
+  // Delete User functionality
   const handleDeleteUser = async () => {
     try {
       dispatch(deleteUserStart());
@@ -112,6 +118,16 @@ export default function Profile() {
       dispatch(deleteUserSuccess(data));
     } catch (error) {
       dispatch(deleteUserFailure(error.message));
+    }
+  };
+
+  // SignOut user functionality
+  const handleUserSignOut = () => {
+    try {
+      dispatch(signOutUserStart());
+      dispatch(signOutUserSuccess());
+    } catch (error) {
+      dispatch(signInFailure(error.message));
     }
   };
 
@@ -178,7 +194,12 @@ export default function Profile() {
         >
           Delete account
         </span>
-        <span className="text-red-700 cursor-pointer">Sign out</span>
+        <span
+          className="text-red-700 cursor-pointer"
+          onClick={handleUserSignOut}
+        >
+          Sign out
+        </span>
       </div>
 
       <p className="text-red-700 mt-5">{error ? error : ""}</p>
