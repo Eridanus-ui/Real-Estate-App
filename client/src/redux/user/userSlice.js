@@ -4,7 +4,7 @@ const initialState = {
   currentUser: null,
   error: null,
   loading: false,
-  googleAuthenticated: false,
+  googleAuthenticated: null,
 };
 
 const userSlice = createSlice({
@@ -42,6 +42,7 @@ const userSlice = createSlice({
       state.currentUser = null;
       state.loading = false;
       state.error = null;
+      state.googleAuthenticated = null;
     },
     deleteUserFailure: (state, action) => {
       state.error = action.payload;
@@ -54,13 +55,14 @@ const userSlice = createSlice({
       state.currentUser = null;
       state.loading = false;
       state.error = null;
+      state.googleAuthenticated = null;
     },
     signOutUserFailure: (state, action) => {
       state.error = action.payload;
       state.loading = false;
     },
-    userIsGoogleAuthenticated: (state) => {
-      state.googleAuthenticated = true;
+    userIsGoogleAuthenticated: (state, action) => {
+      state.googleAuthenticated = action.payload;
     },
   },
 });

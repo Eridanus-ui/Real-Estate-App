@@ -33,7 +33,7 @@ export default function () {
 
       const data = await res.json();
       dispatch(signInSuccess(data));
-      dispatch(userIsGoogleAuthenticated());
+      dispatch(userIsGoogleAuthenticated(true));
       navigate("/");
     } catch (error) {
       console.log("Couldnt sign in to google", error);
