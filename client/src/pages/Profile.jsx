@@ -267,7 +267,7 @@ export default function Profile() {
           </h1>
           {userListings.map((listing) => (
             <div
-              className="border rounded-lg p-3 flex justify-between items-center gap-4"
+              className="border rounded-lg p-3 flex justify-between items-center gap-4 my-2"
               key={listing._id}
             >
               <Link to={`listing/${listing._id}`}>
@@ -285,12 +285,14 @@ export default function Profile() {
               </Link>
               <div className="flex flex-col items-center">
                 <button
-                  className="text-red-700 uppercase"
+                  className="text-red-700 uppercase hover:opacity-75"
                   onClick={() => handleListingDelete(listing._id)}
                 >
                   Delete
                 </button>
-                <button className="text-green-700 uppercase">Edit</button>
+                <button className="text-green-700 uppercase hover:opacity-75">
+                  Edit
+                </button>
               </div>
             </div>
           ))}
