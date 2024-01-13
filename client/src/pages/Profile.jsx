@@ -185,7 +185,7 @@ export default function Profile() {
         <img
           onClick={() => fileRef.current.click()}
           src={formData.avatar || currentUser.avatar}
-          alt="profile"
+          alt="Profile Photo..."
           className="rounded-full h-24 w-24 object-cover cursor-pointer self-center mt-2"
         />
         <p>
@@ -290,9 +290,11 @@ export default function Profile() {
                 >
                   Delete
                 </button>
-                <button className="text-green-700 uppercase hover:opacity-75">
-                  Edit
-                </button>
+                <Link to={`/update-listing/${listing._id}`}>
+                  <button className="text-green-700 uppercase hover:opacity-75">
+                    Edit
+                  </button>
+                </Link>
               </div>
             </div>
           ))}
