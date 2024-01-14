@@ -163,7 +163,6 @@ export default function UpdateListing() {
       });
 
       const data = await res.json();
-      console.log(data);
       setLoading(false);
       if (data.success === false) {
         return setError(error.message);
@@ -204,7 +203,7 @@ export default function UpdateListing() {
                 placeholder="Description"
                 className="border p-3 rounded-lg h-52"
                 id="description"
-                maxLength={62}
+                maxLength={6200}
                 minLength={10}
                 required
                 onChange={handleChange}
@@ -324,7 +323,7 @@ export default function UpdateListing() {
                   </div>
                 </div>
               </div>
-              {formData.type === "sale" && (
+              {formData.type === "sale" && formData.offer && (
                 <div className="flex items-center gap-2">
                   <input
                     type="number"
