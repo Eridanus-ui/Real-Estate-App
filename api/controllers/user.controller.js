@@ -9,6 +9,7 @@ export const test = (req, res) => {
   });
 };
 
+// Function to update user
 export const updateUser = async (req, res, next) => {
   if (req.user.id !== req.params.id)
     return next(errorHandler(401, "You can only update your own account"));
@@ -39,6 +40,7 @@ export const updateUser = async (req, res, next) => {
   }
 };
 
+// Function to delete user
 export const deleteUser = async (req, res, next) => {
   if (req.user.id !== req.params.id)
     return next(errorHandler(401, "You can only delete your own account"));
@@ -65,6 +67,7 @@ export const getUserListings = async (req, res, next) => {
   }
 };
 
+// Function to get user
 export const getUser = async (req, res, next) => {
   try {
     const user = await User.findById(req.params.id);

@@ -91,6 +91,7 @@ export const google = async (req, res, next) => {
   }
 };
 
+// Function to sign oute existing user
 export const signout = (req, res, next) => {
   try {
     res.clearCookie("access_token");

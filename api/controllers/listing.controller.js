@@ -1,6 +1,7 @@
 import Listing from "../models/listing.model.js";
 import { errorHandler } from "../utils/error.js";
 
+// Function to create listing
 export const createListing = async (req, res, next) => {
   try {
     const listing = await Listing.create(req.body);
@@ -10,6 +11,7 @@ export const createListing = async (req, res, next) => {
   }
 };
 
+// Function to delete listing
 export const deleteListing = async (req, res, next) => {
   const listing = await Listing.findById(req.params.id);
   if (!listing) {
@@ -24,6 +26,7 @@ export const deleteListing = async (req, res, next) => {
   } catch (error) {}
 };
 
+// Function to update listing
 export const updateListing = async (req, res, next) => {
   const listing = await Listing.findById(req.params.id);
   if (!listing) {
@@ -43,6 +46,7 @@ export const updateListing = async (req, res, next) => {
   }
 };
 
+// Function to get a specific listing
 export const getListing = async (req, res, next) => {
   try {
     const listing = await Listing.findById(req.params.id);
