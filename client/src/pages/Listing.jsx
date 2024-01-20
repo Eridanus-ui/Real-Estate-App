@@ -9,7 +9,6 @@ import {
   FaBath,
   FaBed,
   FaChair,
-  FaMapMarkedAlt,
   FaMapMarkerAlt,
   FaParking,
   FaShare,
@@ -26,6 +25,7 @@ export default function Listing() {
   const [error, setError] = useState(false);
   const [copied, setCopied] = useState(false);
   const [contact, setContact] = useState(false);
+  const [formattedDiscount, setFormattedDiscount] = useState(null);
   const params = useParams();
   const { currentUser } = useSelector((state) => state.user);
 
@@ -43,6 +43,9 @@ export default function Listing() {
         setListing(data);
         setLoading(false);
         setError(false);
+        const discountAmount = +listing.regularPrice - +listing.discountPrice;
+        const formattedDiscount = discountAmount.toLocaleString();
+        setFormattedDiscount(formattedDiscount);
       } catch (error) {
         setError(true);
         setLoading(false);
@@ -108,7 +111,7 @@ export default function Listing() {
               </p>
               {listing.offer && (
                 <p className="bg-green-900 w-full max-w-[200px] text-white text-center p-1 rounded-md">
-                  ${+listing.regularPrice - +listing.discountPrice} OFF
+                  Ksh. {formattedDiscount} OFF
                 </p>
               )}
             </div>

@@ -152,7 +152,7 @@ export default function CreateListing() {
       if (data.success === false) {
         return setError(error.message);
       }
-      navigate(`/liting/${data._id}`);
+      navigate(`/listing/${data._id}`);
     } catch (error) {
       setError(error.message);
       setLoading(false);
@@ -185,7 +185,7 @@ export default function CreateListing() {
             placeholder="Description"
             className="border p-3 rounded-lg h-52"
             id="description"
-            maxLength={62}
+            maxLength={62000}
             minLength={10}
             required
             onChange={handleChange}
@@ -291,7 +291,7 @@ export default function CreateListing() {
                 type="number"
                 id="regularPrice"
                 min="2500"
-                max="100000"
+                max="10000000"
                 required
                 className="p-2 border-gray-300 rounded-lg text-center"
                 onChange={handleChange}
@@ -305,13 +305,13 @@ export default function CreateListing() {
               </div>
             </div>
           </div>
-          {formData.type === "sale" && (
+          {formData.type === "sale" && formData.offer === true && (
             <div className="flex items-center gap-2">
               <input
                 type="number"
                 id="discountPrice"
                 min="500"
-                max="100000"
+                max="10000000"
                 required
                 className="p-2 border-gray-300 rounded-lg text-center"
                 onChange={handleChange}
