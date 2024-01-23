@@ -65,22 +65,22 @@ export const getListings = async (req, res, next) => {
     const startIndex = parseInt(req.query.startIndex);
     let offer = req.query.offer;
 
-    if (offer === undefined || offer === false) {
+    if (offer === undefined || offer === "false") {
       offer = { $in: [false, true] };
     }
 
     let furnished = req.query.furnished;
-    if (furnished === undefined || false) {
+    if (furnished === undefined || "false") {
       furnished = { $in: [false, true] };
     }
 
     let parking = req.query.parking;
-    if (parking === undefined || false) {
+    if (parking === undefined || "false") {
       parking = { $in: [false, true] };
     }
 
     let type = req.query.type;
-    if (type === undefined || "all") {
+    if (type === undefined || type === "all") {
       type = { $in: ["sale", "rent"] };
     }
 
