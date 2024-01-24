@@ -97,6 +97,7 @@ export default function CreateListing() {
       setFormData({
         ...formData,
         type: e.target.id,
+        offer: e.target.id === "rent" ? false : formData.offer,
       });
     }
 
@@ -255,6 +256,7 @@ export default function CreateListing() {
                 className="w-5"
                 onChange={handleChange}
                 checked={formData.offer === true}
+                disabled={formData.type === "rent"}
               />
               <span>Offer</span>
             </div>
