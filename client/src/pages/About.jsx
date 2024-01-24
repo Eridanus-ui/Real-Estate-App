@@ -25,11 +25,11 @@ export default function About() {
         </p>
 
         <div className="bg-green-200 py-2 border bottom-3 shadow-md px-2 rounded-md">
-          <h2 className="text-2xl font-bold bg-green-200 mb-4 text-gray-800">
+          <h2 className="text-2xl pl-2 font-bold bg-green-200 mb-4 text-gray-800">
             Our Distinctive Offerings:
           </h2>
-          <ol className="list-decimal pl-6 mb-8">
-            <li className="mb-4">
+          <ol className="list-image-none text-red-600 pl-6 mb-8">
+            <li className="mb-4 ">
               <span className="font-bold text-slate-600">Sales Expertise:</span>{" "}
               Discover your dream home among our carefully selected for-sale
               properties. Whether you seek a cozy urban retreat or a sprawling
@@ -81,14 +81,16 @@ export default function About() {
             every interaction.
           </li>
         </ul>
-
-        <p className="text-lg text-center text-slate-700 font-bold leading-relaxed mb-8">
-          At BMK Real Estate, we go beyond buying and selling properties; we
-          create spaces where unforgettable moments unfold. Discover a new
-          standard of living with BMK Real Estate – where every property is a
-          promise of comfort, luxury, and a life well-lived.
-        </p>
+        <div className="bg-green-200 py-2 border bottom-3 shadow-md px-2 rounded-md">
+          <p className="text-center text-blue-500  leading-relaxed mb-8">
+            At BMK Real Estate, we go beyond buying and selling properties; we
+            create spaces where unforgettable moments unfold. Discover a new
+            standard of living with BMK Real Estate – where every property is a
+            promise of comfort, luxury, and a life well-lived.
+          </p>
+        </div>
       </div>
+      <br />
     </div>
   );
 }
