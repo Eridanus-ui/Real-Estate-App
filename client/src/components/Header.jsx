@@ -60,11 +60,6 @@ export default function Header() {
               Home
             </li>
           </Link>
-          <Link to={`./news`}>
-            <li className="hidden sm:inline text-slate-700 hover:bg-slate-400 hover:text-slate-100 cursor-pointer p-2 rounded-md">
-              News
-            </li>
-          </Link>
           <Link to={"./about"}>
             <li className="hidden sm:inline text-slate-700 hover:bg-slate-400 hover:text-slate-100 cursor-pointer p-2 rounded-md">
               About

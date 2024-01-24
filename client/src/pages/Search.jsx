@@ -60,6 +60,10 @@ export default function () {
         data.length > 8 ? setShowMore(true) : setShowMore(false);
         setListings(data);
         setLoading(false);
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
       } catch (error) {
         setLoading(false);
       }
