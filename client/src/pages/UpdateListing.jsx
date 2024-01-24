@@ -193,7 +193,7 @@ export default function UpdateListing() {
                 placeholder="Title"
                 className="border p-3 rounded-lg"
                 id="name"
-                maxLength={62}
+                maxLength={80}
                 minLength={10}
                 required
                 onChange={handleChange}

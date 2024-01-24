@@ -28,7 +28,7 @@ export default function Header() {
   }, [window.location]);
 
   return (
-    <header className="bg-slate-200 shadow-md">
+    <header className="bg-green-100 shadow-md">
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
         <Link to={"./"}>
           <h1 className="font-bold text-sm sm:text-xl flex flex-wrap">
@@ -60,7 +60,12 @@ export default function Header() {
               Home
             </li>
           </Link>
-          <Link to={"./About"}>
+          <Link to={`./news`}>
+            <li className="hidden sm:inline text-slate-700 hover:bg-slate-400 hover:text-slate-100 cursor-pointer p-2 rounded-md">
+              News
+            </li>
+          </Link>
+          <Link to={"./about"}>
             <li className="hidden sm:inline text-slate-700 hover:bg-slate-400 hover:text-slate-100 cursor-pointer p-2 rounded-md">
               About
             </li>
