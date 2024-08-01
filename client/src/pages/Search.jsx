@@ -18,8 +18,6 @@ export default function () {
 
   const navigate = useNavigate();
 
-  // console.log(sidebardata.parking);
-
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
 
